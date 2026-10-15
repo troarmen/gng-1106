@@ -1,0 +1,45 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc arquivo de build ativo",
+            "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarefa gerada pelo Depurador."
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: executar arquivo ativo",
+            "command": "powershell.exe",
+            "args": [
+                "-NoProfile",
+                "-Command",
+                "& '${fileDirname}\\${fileBasenameNoExtension}.exe'"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "dependsOn": "C/C++: gcc arquivo de build ativo",
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+            "group": "test"
+        }
+    ],
+    "version": "2.0.0"
+}
